@@ -1,6 +1,6 @@
 {
   "name": "codelego/phpfox-requirejs",
-  "description": "PhpFox RequireJs Supported",
+  "description": "Control javascript requirejs library by php, support for phpfox framework.",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -15,5 +15,9 @@
       "Phpfox\\RequireJs\\": "src/"
     }
   },
-  "require": {}
+  "autoload-dev": {
+    "psr-4": {
+      "Phpfox\\RequireJs\\": "test/"
+    }
+  }
 }
