@@ -11,46 +11,39 @@ class RequireJs
 {
 
     /**
+     *
+     */
+    const BUNDLE_NAME = 'dist/primary.bundle';
+    /**
      * @var string
      */
     private $_baseUrl;
-
     /**
      * @var
      */
     private $_modules;
-
     /**
      * Script list
      *
      * @var array
      */
     private $scripts = [];
-
     /**
      * @var array
      */
     private $paths = [];
-
     /**
      * @var array
      */
     private $bundles = [];
-
     /**
      * @var array
      */
     private $dependency = ['jquery'];
-
     /**
      * @var array
      */
     private $_shim = [];
-
-    /**
-     *
-     */
-    const BUNDLE_NAME = 'dist/primary.bundle';
 
     /**
      * @return array
@@ -211,6 +204,27 @@ class RequireJs
     }
 
     /**
+     * @return string
+     */
+    public function getPrimaryBundleName()
+    {
+        return self::BUNDLE_NAME;
+    }
+
+    /**
+     * @param array|string $value
+     *
+     * @return $this
+     */
+    public function addPrimaryBundle($value)
+    {
+
+        $this->addBundle(self::BUNDLE_NAME, $value);
+
+        return $this;
+    }
+
+    /**
      * @param string       $name
      * @param string|array $value
      *
@@ -233,27 +247,6 @@ class RequireJs
 
         $this->bundles[$name]
             = array_values(array_unique($this->bundles[$name]));
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPrimaryBundleName()
-    {
-        return self::BUNDLE_NAME;
-    }
-
-    /**
-     * @param array|string $value
-     *
-     * @return $this
-     */
-    public function addPrimaryBundle($value)
-    {
-
-        $this->addBundle(self::BUNDLE_NAME, $value);
 
         return $this;
     }
@@ -285,39 +278,6 @@ class RequireJs
     }
 
     /**
-     * Get requirejs script with a there no.
-     *
-     * @return string
-     */
-    public function renderScript()
-    {
-
-        $response = [];
-
-        foreach ($this->scripts as $script) {
-            $response[] = $script;
-        }
-
-        $response[] = 'BootInit()';
-
-        $content = implode(';' . PHP_EOL, $response);
-
-        $dependency = json_encode($this->getDependency(), JSON_PRETTY_PRINT);
-
-        return 'require(' . $dependency . ', function(){' . PHP_EOL . $content
-        . PHP_EOL . ' });';
-    }
-
-    /**
-     * @return string
-     */
-    public function renderScriptHtml()
-    {
-        return '<script type="text/javascript">' . PHP_EOL
-        . $this->renderScript() . PHP_EOL . '</script>';
-    }
-
-    /**
      * @return string
      */
     public function renderConfig()
@@ -334,12 +294,6 @@ class RequireJs
 
         return 'requirejs.config(' . json_encode($config, JSON_PRETTY_PRINT)
         . ');';
-    }
-
-    public function renderConfigHtml()
-    {
-        return '<script type="text/javascript">' . PHP_EOL
-        . $this->renderConfig() . PHP_EOL . '</script>';
     }
 
     /**
@@ -395,6 +349,30 @@ class RequireJs
     }
 
     /**
+     * Get requirejs script with a there no.
+     *
+     * @return string
+     */
+    public function renderScript()
+    {
+
+        $response = [];
+
+        foreach ($this->scripts as $script) {
+            $response[] = $script;
+        }
+
+        $response[] = 'BootInit()';
+
+        $content = implode(';' . PHP_EOL, $response);
+
+        $dependency = json_encode($this->getDependency(), JSON_PRETTY_PRINT);
+
+        return 'require(' . $dependency . ', function(){' . PHP_EOL . $content
+        . PHP_EOL . ' });';
+    }
+
+    /**
      * @return array
      */
     public function getDependency()
@@ -412,6 +390,21 @@ class RequireJs
         $this->dependency = $dependency;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function renderScriptHtml()
+    {
+        return '<script type="text/javascript">' . PHP_EOL
+        . $this->renderScript() . PHP_EOL . '</script>';
+    }
+
+    public function renderConfigHtml()
+    {
+        return '<script type="text/javascript">' . PHP_EOL
+        . $this->renderConfig() . PHP_EOL . '</script>';
     }
 
     /**
