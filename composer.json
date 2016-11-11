@@ -2,6 +2,7 @@
   "name": "codelego/phpfox-requirejs",
   "description": "PhpFox RequireJs Supported",
   "type": "library",
+  "license": "MIT",
   "authors": [
     {
       "name": "Nam Nguyen",
