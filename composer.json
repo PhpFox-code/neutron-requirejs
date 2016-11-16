@@ -1,6 +1,6 @@
 {
   "name": "codelego/phpfox-requirejs",
-  "description": "Control javascript requirejs library by php, support for phpfox framework.",
+  "description": "JavaScript RequireJS library  for phpfox framework.",
   "type": "library",
   "license": "MIT",
   "authors": [
