@@ -3,10 +3,10 @@
 namespace Phpfox\RequireJs;
 
 return [
-    'factories' => [
-        'requireJs' => RequireJsFactory::class,
+    'services' => [
+        'requireJs' => RequireJs::class,
     ],
-    'events'    => [
+    'events'   => [
         'onAssetManagerGetHeader' => RequireJs::class,
         'onAssetManagerGetFooter' => RequireJs::class,
     ],
