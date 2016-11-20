@@ -4,10 +4,14 @@ namespace Phpfox\RequireJs;
 
 return [
     'services' => [
-        'requireJs' => RequireJs::class,
+        'requireJs' => [null, RequireJs::class,],
     ],
     'events'   => [
-        'onAssetManagerGetHeader' => RequireJs::class,
-        'onAssetManagerGetFooter' => RequireJs::class,
+        'listeners' => [
+            RequireJs::class => [
+                'onAssetManagerGetHeader',
+                'onAssetManagerGetFooter',
+            ],
+        ],
     ],
 ];
