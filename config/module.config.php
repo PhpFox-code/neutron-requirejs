@@ -7,9 +7,6 @@ return [
         'requireJs' => [null, RequireJs::class,],
     ],
     'events'   => [
-        'map' => [
-            'onAssetManagerGetHeader' => ['requireJs',],
-            'onAssetManagerGetFooter' => ['requireJs',],
-        ],
+        'requireJs' => ['onAssetManagerGetHeader', 'onAssetManagerGetFooter'],
     ],
 ];
