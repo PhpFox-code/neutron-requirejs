@@ -7,11 +7,9 @@ return [
         'requireJs' => [null, RequireJs::class,],
     ],
     'events'   => [
-        'listeners' => [
-            RequireJs::class => [
-                'onAssetManagerGetHeader',
-                'onAssetManagerGetFooter',
-            ],
+        'map' => [
+            'onAssetManagerGetHeader' => ['requireJs',],
+            'onAssetManagerGetFooter' => ['requireJs',],
         ],
     ],
 ];
