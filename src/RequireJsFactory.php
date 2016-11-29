@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpfox\RequireJs;
+namespace Neutron\RequireJs;
 
 
 /**
  * Class RequireJsFactory
  *
- * @package Phpfox\RequireJs
+ * @package Neutron\RequireJs
  */
 class RequireJsFactory
 {

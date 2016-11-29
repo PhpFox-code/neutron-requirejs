@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpfox\RequireJs;
+namespace Neutron\RequireJs;
 
 /**
  * Class RequireJs
  *
- * @package Phpfox\RequireJs
+ * @package Neutron\RequireJs
  */
 class RequireJs
 {

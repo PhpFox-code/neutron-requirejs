@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\RequireJs;
+namespace Neutron\RequireJs;
 
 return [
     'services' => [
